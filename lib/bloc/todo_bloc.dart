@@ -49,12 +49,17 @@ class TodoBloc extends Bloc<TodoEvents, TodoStates> {
       dispatch(QueryTodoEvent());
 
     } else if (event is TodoPageStartedEvent) {
+
+      print("here");
       //yield loading to show indicator
       yield LoadingTodoState();
     } else if (event is QueryTodoEvent) {
 
-      //get
+      print("query");
+      //get all items
       final tdl = await _todoDao.getAllSortedByTImeStamp();
+      print("query 1");
+
 
       // get count of _todo list items that are checked done
       isDoneCount=tdl.where((f)=>f.isDone).length;

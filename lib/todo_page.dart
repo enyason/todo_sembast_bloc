@@ -57,6 +57,7 @@ class _TodoPageState extends State<TodoPage> {
 
 
 
+      print(state);
       //show indicator if state is loading
       if (state is LoadingTodoState) {
         return Center(

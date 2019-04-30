@@ -6,19 +6,20 @@ import 'package:todo_sembast_bloc/model/todo.dart';
 
 
 class TodoDoa {
+
   static const String TODO_STORE_NAME = "todo_Store";
 
   final _todoStore = intMapStoreFactory.store(TODO_STORE_NAME);
 
-  Future<Database> get _db async => await AppDatabase.instance.database;
+  Future<Database> get _db  async=> await AppDatabase.instance.database;
 
   Future insert(Todo todo) async {
-    await _todoStore.add(await _db, todo.toMap());
+    await _todoStore.add( await _db, todo.toMap());
   }
 
   Future update(Todo todo) async{
     final finder = Finder(filter: Filter.byKey(todo.id));
-    await _todoStore.update(await _db, todo.toMap(),finder: finder);
+    await _todoStore.update( await _db, todo.toMap(),finder: finder);
   }
 
   Future delete(Todo todo) async {

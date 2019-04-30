@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:todo_sembast_bloc/model/todo.dart';
 
+//base class for events
 abstract class TodoEvents extends Equatable {
   TodoEvents([List props = const []]) : super(props);
 }
